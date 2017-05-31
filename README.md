@@ -47,10 +47,19 @@ belongs_to :user
 ***
 
 * System dependencies
+## group_users table
+***
 
 * Configuration
+| column | type | option |
+|:-----------|------------:|:------------:|
+| user_id      | integer        | foreign_key :true         |
+| message_id     | integer      | foreign_key :true       |
 
 * Database creation
+## Association
+・ belongs_to :user
+・ belongs_to :group
 
 * Database initialization
 
