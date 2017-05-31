@@ -1,6 +1,7 @@
 #DB設計
 ***
 ##users table
+## users table
 ***
 
 | column | type | option |
@@ -21,6 +22,7 @@ has_many :groups, through :group_users
 
 * Ruby version
 ##messages table
+## messages table
 ***
 
 | column | type | option |
@@ -33,6 +35,7 @@ has_many :groups, through :group_users
 ## Association
 belongs_to :user
 +belongs_to :group
+belongs_to :group
 ***
 
 ## groups table
@@ -67,6 +70,9 @@ has_many :users, through :group_users
 | message_id   | integer        | foreign_key :true  |
 
 * Database creation
+| user_id       | integer        | foreign_key :true             |
+| group_id      | integer        | foreign_key :true             |
+
 ## Association
 ・ belongs_to :user
 ・ belongs_to :group
