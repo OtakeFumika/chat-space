@@ -14,6 +14,9 @@
 +has_many :messages
 +has_many :group_users
 +has_many :groups, through :group_users
+has_many :messages
+has_many :group_users
+has_many :groups, through :group_users
 ***
 
 * Ruby version
@@ -44,6 +47,9 @@ belongs_to :user
 ・ has_many :messages
 ・ has_many :group_users
 ・ has_many :users, through :group_users
+has_many :messages
+has_many :group_users
+has_many :users, through :group_users
 ***
 
 * System dependencies
@@ -55,11 +61,17 @@ belongs_to :user
 |:-----------|------------:|:------------:|
 | user_id      | integer        | foreign_key :true         |
 | message_id     | integer      | foreign_key :true       |
+| column       | type           | option             |
+|:-------------|---------------:|:------------------:|
+| user_id      | integer        | foreign_key :true  |
+| message_id   | integer        | foreign_key :true  |
 
 * Database creation
 ## Association
 ・ belongs_to :user
 ・ belongs_to :group
+belongs_to :user
+belongs_to :group
 
 * Database initialization
 
