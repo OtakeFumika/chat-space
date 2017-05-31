@@ -18,6 +18,8 @@
 has_many :messages
 has_many :group_users
 has_many :groups, through :group_users
+- has_many :group_users
+- has_many :groups, through :group_users
 ***
 
 * Ruby version
@@ -36,6 +38,8 @@ has_many :groups, through :group_users
 belongs_to :user
 +belongs_to :group
 belongs_to :group
+- belongs_to :user
+- belongs_to :group
 ***
 
 ## groups table
@@ -53,6 +57,9 @@ belongs_to :group
 has_many :messages
 has_many :group_users
 has_many :users, through :group_users
+- has_many :messages
+- has_many :group_users
+- has_many :users, through :group_users
 ***
 
 * System dependencies
@@ -72,12 +79,16 @@ has_many :users, through :group_users
 * Database creation
 | user_id       | integer        | foreign_key :true             |
 | group_id      | integer        | foreign_key :true             |
+| user_id    | integer     | foreign_key :true             |
+| group_id   | integer     | foreign_key :true             |
 
 ## Association
 ・ belongs_to :user
 ・ belongs_to :group
 belongs_to :user
 belongs_to :group
+- belongs_to :user
+- belongs_to :group
 
 * Database initialization
 
