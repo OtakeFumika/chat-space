@@ -1,9 +1,20 @@
-# README
+#DB設計
+***
+##users table
+***
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+| column | type | option |
+|:-----------|------------:|:------------:|
+| name       | string      | null: false,index: true,unique: true         |
+| mail     | text      | null: false       |
+| image       | text        | null: false         |
+| password    | text          | null: false,unique: true           |
 
-Things you may want to cover:
+##Association
++has_many :messages
++has_many :group_users
++has_many :groups, through :group_users
+***
 
 * Ruby version
 
