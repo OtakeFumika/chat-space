@@ -8,7 +8,7 @@
 | name       | string      | null: false,index: true,unique: true         |
 | mail     | text      | null: false       |
 | image       | text        | null: false         |
-| password    | text          | null: false,unique: true           |
+| password    | text          | null: false,unique: true,index :true           |
 
 ## Association
 - has_many :group_users
@@ -22,8 +22,8 @@
 |:-----------|------------:|:------------:|
 | text       | text        |              |
 | image      | text        |              |
-| user_id    | integer     | foreign_key :true |
-| group_id   | integer     | foreign_key :true |
+| user_id    | references     | foreign_key :true,index: true |
+| group_id   | references     | foreign_key :true,index: true |
 
 ## Association
 - belongs_to :user
@@ -50,8 +50,8 @@
 
 | column | type | option |
 |:-----------|------------:|:------------:|
-| user_id    | integer     | foreign_key :true             |
-| group_id   | integer     | foreign_key :true             |
+| user_id    | references     | foreign_key :true,index: true             |
+| group_id   | references     | foreign_key :true,index: true             |
 
 ## Association
 - belongs_to :user
