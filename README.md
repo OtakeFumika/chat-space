@@ -10,7 +10,7 @@
 | image       | text        | null: false         |
 | password    | text          | null: false,unique: true           |
 
-##Association
+## Association
 - has_many :group_users
 - has_many :groups, through :group_users
 ***
