@@ -17,6 +17,34 @@
 ***
 
 * Ruby version
+##messages table
+***
+
+| column | type | option |
+|:-----------|------------:|:------------:|
+| text       | text        |              |
+| image      | text        |              |
+| user_id    | integer     | foreign_key :true |
+| group_id   | integer     | foreign_key :true |
+
+## Association
+belongs_to :user
++belongs_to :group
+***
+
+## groups table
+***
+
+| column | type | option |
+|:-----------|------------:|:------------:|
+| name       | string        | null:false         |
+
+
+## Association
+・ has_many :messages
+・ has_many :group_users
+・ has_many :users, through :group_users
+***
 
 * System dependencies
 
