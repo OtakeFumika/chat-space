@@ -1,0 +1,169 @@
+.notification{
+    background-color: $light-blue;
+    text-align: center;
+    color:white;
+    width:100vw
+}
+
+
+.sidebar{
+  width:300px;
+  box-sizing:border-box;
+  float:left;
+  .head{
+    height:100px;
+    background-color:#253141;
+    padding:0 20px;
+    .group{
+      line-height: 100px;
+      &__name{
+        font-size:16px;
+        display: inline-block;
+        font-weight: bold;
+        color:#ffffff;
+      }
+      &__icon{
+        float:right;
+        a{color:white;}
+        &__edit{display: inline-block;}
+        &__cog{display: inline-block;}
+      }
+    }
+  }
+  .body{
+    height:calc(100vh - 100px - 25px);
+    background-color: #2f3e51;
+    color:#ffffff;
+    ul{
+      display:block;
+      padding:20px 20px 20px 20px;
+      .name{
+        font-size: 15px;
+        padding-bottom:5px;
+      }
+      .say{
+        font-size:11px;
+      }
+    }
+  }
+}
+
+.messages{
+  background-color:red;
+  width:calc(100% - 300px);
+  box-sizing:border-box;
+  float:left;
+  &__group{
+    height:100px;
+    background-color:white;
+    padding:0 40px;
+    box-sizing:border-box;
+    border-bottom:solid 2px #eeeeee;
+    &__left{
+      display:block;
+      float:left;
+      h2{
+        font-size:20px;
+        color:#333333;
+        padding-top:35px;
+      }
+      p{font-size:12px;
+        color:#999999;
+        padding-bottom:15px;
+      }
+    }
+    &__right{
+      float:right;
+      padding-top:28px;
+      box-sizing:border-box;
+      .edit{
+        display:block;
+        border:solid 2px $light-blue;
+        padding:0 20px;
+        height:40px;
+        line-height:40px;
+        text-decoration: none;
+        font-weight:bold;
+        color:#38aef0;
+      }
+    }
+  }
+  &__chat{
+    height:calc(100vh - 90px - 100px - 25px);
+    background-color:#aaaaaa;
+    box-sizing:border-box;
+    padding:46px 40px 0;
+    &__user{
+      display:inline-block;
+      padding-bottom:10px;
+      &__name{
+        display: inline-block;
+        font-size:16px;
+        font-weight: bold;
+        color:#434A54;
+        padding-right:10px;
+      }
+      &__time{
+        display: inline-block;
+        font-size:12px;
+        color:#999999;
+      }
+    }
+    p{
+      font-size:14px;
+      color:#434a54;
+      padding-bottom:20px;
+    }
+  }
+
+  &__writing{
+    height:90px;
+    box-sizing:border-box;
+    background-color: #dddddd;
+    padding:0 40px;
+    &__form{display:inline-block;
+      &__text{
+        height:50px;
+        margin:20px 0;
+        width:calc(100vw - 300px - 240px);
+        padding:0 10px;
+        font-size:16px;
+        color:#434a54;
+        box-sizing:border-box;
+        display:inline-block;
+        border:none;
+        float:left;
+        outline:0;
+      }
+      &__file{
+        display: inline-block;
+        width:30px;
+        float:left;
+        line-height: 50px;
+        margin:20px 0;
+        background-color: white;
+        height:50px;
+        padding-right: 10px;
+        box-sizing:border-box;
+      }
+      #icon{
+        display:none;
+      }
+      .fa{
+        line-height: 50px;
+        padding-right:10px;
+      }
+      &__send{
+        display:inline-block;
+        width:100px;
+        height:50px;
+        padding:0 20px;
+        margin:20px 0 20px 15px;
+        line-height: 50px;
+        background-color: $light-blue;
+        color:white;
+        box-sizing:border-box;
+      }
+}
+  }
+}
