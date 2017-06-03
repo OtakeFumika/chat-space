@@ -1,12 +1,17 @@
 
 .notification
-  = render :partial => "/layouts/modules/notification"
+  = render partial: "/layouts/modules/notification"
 .sidebar
-  =render :partial => "/layouts/modules/side-bar"
+  =render partial: "/layouts/modules/side-bar"
 .messages
   .messages__group
-    =render :partial => "/layouts/modules/group"
+    .messages__group__left
+      %h2  犬好き
+      %p   佐藤　翔太,猫好　花子,sample,sample
+    .messages__group__right
+      %a.edit{href: ""} Edit
+
   .messages__chat
-    = render :partial => "/layouts/modules/chat"
+    = render partial: "/layouts/modules/chat"
   .messages__writing
-    = render :partial => "/layouts/modules/edit"
+    = render partial: "/layouts/modules/edit"
