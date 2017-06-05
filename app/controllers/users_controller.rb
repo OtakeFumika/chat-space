@@ -6,10 +6,10 @@ class UsersController < ApplicationController
 
   def update
     user = User.find(params[:id])
-    if user.update(user_params)
+    if user.update_attributes(user_params)
       redirect_to controller: :messages,action: :index
     else
-      redirect_to controller: :messages,action: :edit
+      redirect_to action: :edit
     end
   end
 
