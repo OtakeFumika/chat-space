@@ -5,9 +5,9 @@ class UsersController < ApplicationController
   end
 
   def update
-    user = User.find(params[:id])
+    user = current_user
     if user.update(user_params)
-      redirect_to controller: :messages,action: :index
+      redirect_to controller: :messages, action: :index
     else
       render "edit"
     end
@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 private
 
   def user_params
-    params.require(:user).permit(:name,:email)
+    params.require(:user).permit(:name, :email)
   end
 
   def move_to_index

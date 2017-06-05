@@ -1,12 +1,13 @@
 .head
   .group
-    %h3.group__name 佐藤　翔太
+    %h3.group__name
+      = current_user.name
     %ul.group__icon
       %li.group__icon__edit
         %a{href: ""}
           %i.fa.fa-edit
       %li.group__icon__cog
-        %a{href: ""}
+        %a{href: "users/#{current_user.id}/edit"}
           %i.fa.fa-cog
 .body
   %ul.lists
