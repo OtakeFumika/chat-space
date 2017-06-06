@@ -4,10 +4,15 @@ class GroupsController < ApplicationController
   end
 
   def create
-    if @group = Group.create(group_params)
+    @group = Group.new(group_params)
+
+    if @group.save
        redirect_to controller: :messages, action: :index
-    else render "new"
+    else
+      session[:errors] = @group.errors.full_messages
+      render "new"
     end
+
   end
 
   def edit
