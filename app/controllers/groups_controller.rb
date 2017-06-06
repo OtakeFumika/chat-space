@@ -7,10 +7,10 @@ class GroupsController < ApplicationController
     @group = Group.new(group_params)
 
     if @group.save
-       redirect_to controller: :messages, action: :index
+       redirect_to root_path
     else
       session[:errors] = @group.errors.full_messages
-      render "new"
+      render :new
     end
 
   end
@@ -24,6 +24,6 @@ class GroupsController < ApplicationController
   private
 
   def group_params
-      params.require(:group).permit(:name, { :user_ids=> [] })
+      params.require(:group).permit(:name, { user_ids:[] })
   end
 end
