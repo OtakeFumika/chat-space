@@ -10,8 +10,8 @@
         = link_to edit_user_path(current_user), method: :get do
           %i.fa.fa-cog
 .body
-  -if @user.groups
-    - @user.groups.each do |group|
+  -if current_user.groups
+    - current_user.groups.each do |group|
       %ul.lists
         %li.name
           = group.name
