@@ -1,4 +1,7 @@
 class GroupsController < ApplicationController
+
+  before_action :find_group, only: [:edit, :update]
+
   def new
     @group = Group.new
   end
@@ -7,8 +10,7 @@ class GroupsController < ApplicationController
     @group = Group.new(group_params)
 
     if @group.save
-       flash[:notice] = "グループを作成しました"
-       redirect_to root_path
+       redirect_to root_path, notice:  "グループを作成しました"
     else
       session[:errors] = @group.errors.full_messages
       render :new
@@ -20,11 +22,21 @@ class GroupsController < ApplicationController
   end
 
   def update
+    if @group.update(group_params)
+       redirect_to root_path, notice:  "グループを更新しました"
+    else
+      session[:errors] = @group.errors.full_messages
+      render :update
+    end
   end
 
   private
 
   def group_params
       params.require(:group).permit(:name, { user_ids:[] })
+  end
+
+  def find_group
+    @group = Group.find(params[:id])
   end
 end
