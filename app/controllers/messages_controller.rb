@@ -7,15 +7,14 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @messages = Message.new
+    Message.create(text: message_params[:text], group_id: message_params[:group_id], user_id: message_params[:user_id],image: message_params[:image])
     binding.pry
-    Message.create(text: message_params[:message], group_id: message_params[:group_id], user_id: current_user.id,image: message_params[:image])
     redirect_to root_path
   end
 
   private
 
   def message_params
-    params.require(:message).permit(:message,:group_id,:image)
+    params.require(:message).permit(:text,:image).merge(user_id: current_user.id, group_id: params[:group_id])
   end
 end
