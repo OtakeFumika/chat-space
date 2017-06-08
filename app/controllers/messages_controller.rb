@@ -8,8 +8,11 @@ class MessagesController < ApplicationController
 
   def create
     group = Group.find(params[:group_id])
-    group.messages.create(message_params)
+    group.new(message_params)
+    if group.save
     redirect_to root_path
+    else
+    render :index
   end
 
   private
