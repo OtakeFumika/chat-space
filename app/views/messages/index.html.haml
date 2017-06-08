@@ -1,5 +1,5 @@
 .sidebar
-  =render partial: "/layouts/modules/side-bar"
+  =render partial: '/layouts/modules/side-bar'
 - if @group
   .messages
     .messages__group
@@ -10,10 +10,10 @@
           %p
             = user.name
       .messages__group__right
-        = link_to edit_group_path(@group),class: "edit",method: :get do
+        = link_to edit_group_path(@group),class: 'edit',method: :get do
           Edit
 
     .messages__chat
-      = render partial: "/layouts/modules/chat"
+      = render partial: '/layouts/modules/chat'
     .messages__writing
-      = render partial: "/messages/message-form"
+      = render partial: '/messages/message-form'
