@@ -1,5 +1,5 @@
 class MessagesController < ApplicationController
-  before_action :find_group
+  before_action :find_group, :make_message_instance
 
   def index
   end
@@ -17,11 +17,14 @@ class MessagesController < ApplicationController
   private
 
   def message_params
-    params.require(:message).permit(:text,:image).merge(user_id: current_user.id, group_id: params[:group_id])
+      params.require(:message).permit(:text,:image).merge(user_id: current_user.id, group_id: params[:group_id])
   end
 
   def find_group
     @group = Group.includes(:messages).find(params[:group_id]) if params[:group_id]
+  end
+
+  def make_message_instance
     @messages = Message.new
   end
 
