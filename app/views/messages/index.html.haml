@@ -1,15 +1,18 @@
-
 .sidebar
   =render partial: "/layouts/modules/side-bar"
-.messages
-  .messages__group
-    .messages__group__left
-      %h2  犬好き
-      %p   佐藤　翔太,猫好　花子,sample,sample
-    .messages__group__right
-      %a.edit{href: ""} Edit
+- if @group
+  .messages
+    .messages__group
+      .messages__group__left
+        %h2
+          = @group.name
+        - @group.users.each do |user|
+          %p
+            = user.name
+      .messages__group__right
+        %a.edit{href: "edit"} Edit
 
-  .messages__chat
-    = render partial: "/layouts/modules/chat"
-  .messages__writing
-    = render partial: "/layouts/modules/edit"
+    .messages__chat
+      = render partial: "/layouts/modules/chat"
+    .messages__writing
+      = render partial: "/layouts/modules/edit"

@@ -1,5 +1,5 @@
 .chat-group-form
-  %h1 新規チャットグループ
+  %h1 チャットグループ編集
   = form_for @group, html: {id: "new_chat_group_new_chat_group"} do |f|
     - if @group.errors.any?
       .chat-group-form__errors
@@ -45,5 +45,5 @@
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
       .chat-group-form__field--right
-        %input.chat-group-form__action-btn{ data:{disable:{with: "Save"}}, name: "commit", type: "submit", value: "Save"}/
+        %input.chat-group-form__action-btn{ data:{disable:{with: "更新する"}}, name: "commit", type: "submit", value: "更新する"}/
 
