@@ -88,7 +88,6 @@
         font-size:12px;
         color:$font-grey;
         padding-bottom:15px;
-        display:inline-block;
       }
     }
     &__right{
@@ -172,8 +171,6 @@
       .fa{
         line-height: 50px;
         padding-right:10px;
-        display: inline-block;
-        color:black;
       }
       &__send{
         display:inline-block;
@@ -185,7 +182,6 @@
         background-color: $light-blue;
         color:white;
         box-sizing:border-box;
-        font-size:16px;
       }
 }
   }
