@@ -7,8 +7,8 @@ class MessagesController < ApplicationController
   end
 
   def create
-    Message.create(text: message_params[:text], group_id: message_params[:group_id], user_id: message_params[:user_id],image: message_params[:image])
-    binding.pry
+    group = Group.find(params[:group_id])
+    group.messages.create(message_params)
     redirect_to root_path
   end
 
