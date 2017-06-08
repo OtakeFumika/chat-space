@@ -10,9 +10,10 @@
           %p
             = user.name
       .messages__group__right
-        %a.edit{href: "edit"} Edit
+        = link_to edit_group_path(@group),class: "edit",method: :get do
+          Edit
 
     .messages__chat
       = render partial: "/layouts/modules/chat"
     .messages__writing
-      = render partial: "/layouts/modules/edit"
+      = render partial: "/messages/message-form"
