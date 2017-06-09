@@ -17,5 +17,7 @@
           = link_to group_messages_path(group), method: :get do
             = group.name
         %li.say
-          = group.messages.pluck(:text).last
+          = group.messages.pluck(:text).last if group.messages.pluck(:text).last
+          %br
+          = "画像が投稿されています" if group.messages.pluck(:image).last
 
