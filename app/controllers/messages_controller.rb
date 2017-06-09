@@ -1,7 +1,8 @@
 class MessagesController < ApplicationController
-  before_action :find_group, :make_message_instance
+  before_action :find_group
 
   def index
+    @messages = Message.new
   end
 
   def create
@@ -22,10 +23,6 @@ class MessagesController < ApplicationController
 
   def find_group
     @group = Group.includes(:messages).find(params[:group_id]) if params[:group_id]
-  end
-
-  def make_message_instance
-    @messages = Message.new
   end
 
 end
