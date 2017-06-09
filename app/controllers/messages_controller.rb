@@ -2,6 +2,7 @@ class MessagesController < ApplicationController
   before_action :find_group
 
   def index
+    @messages = Message.new
   end
 
   def create
@@ -21,8 +22,7 @@ class MessagesController < ApplicationController
   end
 
   def find_group
-    @group = Group.find(params[:group_id]) if params[:group_id]
-    @messages = Message.new
+    @group = Group.includes(:messages).find(params[:group_id]) if params[:group_id]
   end
 
 end

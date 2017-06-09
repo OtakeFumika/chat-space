@@ -16,5 +16,8 @@
         %li.name
           = link_to group_messages_path(group), method: :get do
             = group.name
-        %li.say 私、実は猫の方が好きなの
+        %li.say
+          = group.messages.last.try(:text)
+          %br
+          = "画像が投稿されています" if group.messages.pluck(:image).last
 
