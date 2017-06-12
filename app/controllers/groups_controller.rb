@@ -2,6 +2,9 @@ class GroupsController < ApplicationController
 
   before_action :find_group, only: [:edit, :update]
 
+  def index
+  end
+
   def new
     @group = Group.new
   end
@@ -26,7 +29,7 @@ class GroupsController < ApplicationController
        redirect_to root_path, notice:  "グループを更新しました"
     else
       session[:errors] = @group.errors.full_messages
-      render :update
+      render :edit
     end
   end
 

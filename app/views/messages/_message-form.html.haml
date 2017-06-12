@@ -1,8 +1,9 @@
-.messages__writing__form
-  = form_for [@group, @messages], html:{multipart: true} do |f|
-    = f.text_field :text, placeholder: 'type a message', class: 'messages__writing__form__text'
-    = f.label :image, {class: 'messages__writing__form__file'} do
-      #icon
-        = f.file_field :image
-      %i.fa.fa-picture-o
-    = f.button :Send, class: 'messages__writing__form__send'
+.writing
+  .writing__form
+    = form_for [@group,@message], html:{multipart: true} do |f|
+      = f.text_field :text, placeholder: 'type a message', class: 'writing__form__text'
+      = f.label :image, {class: 'writing__form__file'} do
+        #icon
+          = f.file_field :image
+        %i.fa.fa-picture-o
+      = f.button :Send, class: 'writing__form__send'

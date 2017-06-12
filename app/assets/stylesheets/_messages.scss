@@ -137,14 +137,14 @@
       display:block;
     }
   }
-
-  &__writing{
+}
+  .writing{
     height:90px;
     box-sizing:border-box;
     background-color: $light-grey;
     padding:0 40px;
     &__form{
-      display:inline-block;
+
       &__text{
         height:50px;
         margin:20px 0;
@@ -153,13 +153,11 @@
         font-size:16px;
         color:$message-color;
         box-sizing:border-box;
-        display:inline-block;
         border:none;
         float:left;
         outline:0;
       }
       &__file{
-        display: inline-block;
         width:30px;
         float:left;
         line-height: 50px;
@@ -175,11 +173,9 @@
       .fa{
         line-height: 50px;
         padding-right:10px;
-        display: inline-block;
         color:black;
       }
       &__send{
-        display:inline-block;
         width:100px;
         height:50px;
         padding:0 20px;
@@ -190,6 +186,6 @@
         box-sizing:border-box;
         font-size:16px;
       }
-}
+    }
   }
-}
+
