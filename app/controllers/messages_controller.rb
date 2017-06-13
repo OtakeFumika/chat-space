@@ -7,7 +7,7 @@ before_action :find_group
   def create
     @message = Message.new(message_params)
     if @message.save
-      redirect_to action: :index, notice: "メッセージを送信しました"
+      redirect_to group_messages_path, notice: "メッセージを送信しました"
     else
       flash[:alert] = "メッセージを入力してください"
       render :index
