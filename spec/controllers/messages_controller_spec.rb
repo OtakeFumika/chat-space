@@ -1,9 +1,11 @@
 require 'rails_helper'
 
 describe MessagesController, type: :controller do
+
   let(:user) {create(:user)}
   let(:group) {create(:group)}
   let(:message) {create(:message)}
+
   describe 'GET #index' do
     context 'in the case of user_signed_in' do
       before do
@@ -16,9 +18,14 @@ describe MessagesController, type: :controller do
       end
 
       it "render is the :index template" do
-        message = Message.new
         get :index, params:{ group_id: group.id }
         expect(response).to render_template :index
+      end
+
+      it "assigns a new Message to @message" do
+        message = Message.new
+        get :index, params:{ group_id: group.id }
+        expect(assigns(:message)).to be_a_new(Message)
       end
     end
 
@@ -34,7 +41,6 @@ describe MessagesController, type: :controller do
     context 'in the case of user_signed_in & saves the message in the database' do
       before  :each do
         login_user user
-
       end
 
       it 'saves the new messages in the database' do

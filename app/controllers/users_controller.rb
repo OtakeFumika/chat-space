@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
   def update
     if current_user.update(user_params)
-      redirect_to controller: :groups, action: :index
+      redirect_to groups_path
     else
       render "edit"
     end
@@ -20,7 +20,7 @@ private
 
   def move_to_index
     unless user_signed_in?
-      redirect_to controller: :groups,action: :index
+      redirect_to new_user_session_path
     end
   end
 end

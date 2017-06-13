@@ -36,6 +36,7 @@ end
 
 group :test do
   gem 'faker'
+  gem 'rails-controller-testing'
 end
 
 
@@ -48,4 +49,4 @@ gem 'pry-rails'
 gem  'rails-i18n'
 gem 'carrierwave'
 gem 'mini_magick'
-gem 'rails-controller-testing'
+
