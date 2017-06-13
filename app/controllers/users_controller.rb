@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :move_to_index
+before_action :authenticate_user!
 
   def edit
   end
@@ -16,11 +16,5 @@ private
 
   def user_params
     params.require(:user).permit(:name, :email)
-  end
-
-  def move_to_index
-    unless user_signed_in?
-      redirect_to new_user_session_path
-    end
   end
 end
