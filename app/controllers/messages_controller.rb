@@ -1,5 +1,5 @@
 class MessagesController < ApplicationController
-before_action :find_group
+before_action :find_group, only: [:index, :create]
   def index
     @message = Message.new
     @messages = @group.messages.order('created_at ASC')
