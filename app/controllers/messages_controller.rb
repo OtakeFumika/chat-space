@@ -2,7 +2,7 @@ class MessagesController < ApplicationController
 before_action :find_group
   def index
     @message = Message.new
-    @messages = Message.order('created_at ASC')
+    @messages = @group.messages.order('created_at ASC')
   end
 
   def create
