@@ -30,5 +30,8 @@ $(function() {
       $("form")[0].reset();
       $('.messages__chat').animate({ scrollTop: $('.messages__chat')[0].scrollHeight }, 'slow');
     })
+    .fail(function(){
+      alert('メッセージの送信に失敗しました');
+    });
   });
 });
