@@ -1,5 +1,6 @@
 $(function() {
-  var chat = $('.messages__chat')
+  var chatSpace = $('.messages__chat');
+  var jsForm = $('.js-form');
 
   function buildHTML(message){
 
@@ -9,18 +10,16 @@ $(function() {
     var text = message.text ? $('<li class="messages__chat__message__text">').append(message.text) : "";
 
      var chat = $('<ul class= "messages__chat__message">').append(name).append(time).append(text).append(image);
-    chat.append(chat);
+     chatSpace.append(chat);
   }
 
 
-
-  $('.js-form').on('submit', function(e){
+    jsForm.on('submit', function(e){
     e.preventDefault();
 
     var url = './messages';
-    var form = $('.js-form').get(0);
+    var form = jsForm.get(0);
     var formData = new FormData(form);
-
     $.ajax({
       type: 'POST',
       url:  url,
@@ -31,8 +30,8 @@ $(function() {
     })
     .done(function(data) {
       buildHTML(data);
-      $("form")[0].reset();
-      chat.animate({ scrollTop: chat[0].scrollHeight }, 'slow');
+      jsForm[0].reset();
+      chatSpace.animate({ scrollTop: chatSpace [0].scrollHeight }, 'slow');
     })
     .fail(function(){
       alert('メッセージの送信に失敗しました');
