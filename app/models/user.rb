@@ -9,4 +9,5 @@ class User < ApplicationRecord
   validates :email, presence: true, length: {minimum: 8, maximum: 50}, uniqueness: true
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  scope :search, -> name { where('name Like(?)', "%#{name}%")}
 end

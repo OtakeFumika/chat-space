@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+  def index
+    @user = User.search(params[:name])
+  end
+
   def edit
   end
 
