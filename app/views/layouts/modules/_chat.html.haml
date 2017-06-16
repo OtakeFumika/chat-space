@@ -1,10 +1,10 @@
-- @group.messages.each do |message|
-  %ul_.messages__chat__user
-    %li.messages__chat__user__name
+- @messages.each do |message|
+  %ul.messages__chat__message
+    %li.messages__chat__message__name
       = message.user.name
-    %li.messages__chat__user__time
+    %li.messages__chat__message__time
       = message.created_at
-  %p
-    = message.text if message.text
-  %p
-    = image_tag(message.image) if message.image
+    %li.messages__chat__message__text
+      = message.text if message.text
+    %li.messages__chat__message__image
+      = image_tag message.image if message.image

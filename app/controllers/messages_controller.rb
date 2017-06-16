@@ -1,13 +1,20 @@
 class MessagesController < ApplicationController
-before_action :find_group
+
+  before_action :find_group, only: [:index, :create]
+
   def index
     @message = Message.new
+    @messages = @group.messages.includes(:user).order('created_at ASC')
   end
 
   def create
     @message = Message.new(message_params)
+    binding.pry
     if @message.save
-      redirect_to group_messages_path, notice: "メッセージを送信しました"
+      respond_to do |format|
+        format.html {redirect_to group_messages_path, notice: "メッセージを送信しました"}
+        format.json
+      end
     else
       flash[:alert] = "メッセージを入力してください"
       render :index
@@ -17,7 +24,7 @@ before_action :find_group
   private
 
   def message_params
-    params.require(:message).permit(:text,:image).merge(user_id: current_user.id, group_id: params[:group_id])
+    params.require(:message).permit(:text,:image).merge(user_id: current_user.id, group_id: @group.id)
   end
 
   def find_group
