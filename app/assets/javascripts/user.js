@@ -1,6 +1,6 @@
 $(function() {
 
-  $('#user-search-field.chat-group-form__input').on('keyup', function(e){
+  $('#user-search-field').on('keyup', function(e){
     e.preventDefault()
 
     var $input = $('#user-search-field').val();
