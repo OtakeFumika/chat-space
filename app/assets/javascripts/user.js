@@ -4,7 +4,6 @@ $(function() {
     e.preventDefault()
 
     var $input = $('#user-search-field.chat-group-form__input').val();
-    console.log($input);
 
     $.ajax({
       type: 'GET',
@@ -15,7 +14,6 @@ $(function() {
       processData: false
     })
     .done(function(data){
-      console.log(data);
     })
   });
 });
