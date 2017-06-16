@@ -4,10 +4,12 @@ $(function() {
 
   function buildHTML(message){
 
+    // if($name=="hogehoge) $test = 1;
+
     var time = $('<li class= "messages__chat__message__time">').append(message.created_at);
     var name = $('<li class= "messages__chat__message__name">').append(message.name);
-    var image = message.image.url ? $('<li class="messages__chat__message__image">').append(' <img src= "'+ message.image.url + '">') : "";
-    var text = message.text ? $('<li class="messages__chat__message__text">').append(message.text) : "";
+    if(message.image.url) var image = $('<li class="messages__chat__message__image">').append(' <img src= "'+ message.image.url + '">');
+    if(message.text) var text = $('<li class="messages__chat__message__text">').append(message.text);
 
      var chat = $('<ul class= "messages__chat__message">').append(name).append(time).append(text).append(image);
      $chatSpace.append(chat);
