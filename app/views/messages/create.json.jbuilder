@@ -1,2 +1,5 @@
-json.(@message, :id, :text, :image, :created_at);
-json.(@user, :name);
+json.text @message.text
+json.name @message.user.name
+json.image @message.image
+json.created_at @message.created_at
+

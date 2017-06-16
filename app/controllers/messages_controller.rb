@@ -4,12 +4,12 @@ class MessagesController < ApplicationController
 
   def index
     @message = Message.new
-    @messages = @group.messages.order('created_at ASC')
+    @messages = @group.messages.includes(:user).order('created_at ASC')
   end
 
   def create
     @message = Message.new(message_params)
-    @user = @message.user
+    binding.pry
     if @message.save
       respond_to do |format|
         format.html {redirect_to group_messages_path, notice: "メッセージを送信しました"}

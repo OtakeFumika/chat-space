@@ -4,7 +4,6 @@ $(function() {
 
   function buildHTML(message){
 
-    // if($name=="hogehoge) $test = 1;
 
     var time = $('<li class= "messages__chat__message__time">').append(message.created_at);
     var name = $('<li class= "messages__chat__message__name">').append(message.name);
@@ -35,7 +34,7 @@ $(function() {
       $jsForm[0].reset();
       $chatSpace.animate({ scrollTop: $chatSpace [0].scrollHeight }, 'slow');
     })
-    .fail(function(){
+    .fail(function(data){
       alert('メッセージの送信に失敗しました');
     });
   });
