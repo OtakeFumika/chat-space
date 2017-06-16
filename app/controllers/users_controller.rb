@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def index
-    @user = User.search
+    @user = User.search(params[:name])
   end
 
   def edit
