@@ -34,7 +34,6 @@ $(function() {
       processData: false
     })
     .done(function(data){
-      console.log(data);
       if(data != preWord){
         $('#chat-group-add').remove();
         if($search.length !== 0){
