@@ -13,7 +13,6 @@ $(function() {
     var input = $('<input>').attr({name: 'group[user_ids][]', type: 'hidden', value: $(user).data('user-id')});
     var name = $('<p>', {'class': 'chat-group-user__name'}).text($(user).data('user-name'));
     var btn = $('<a>', {'class': 'user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'}).append('削除');
-
     var result = div.append(input).append(name).append(btn);
     $('#chat-group-users').append(result);
   }

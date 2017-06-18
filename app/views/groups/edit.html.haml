@@ -27,6 +27,8 @@
         = f.label :name, 'チャットメンバー', class: 'chat-group-form__label'
       .chat-group-form__field--right
         #chat-group-users
+          - @group.users.each do |user|
+            = render partial: '/groups/user-list', locals: { user: user}
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
       .chat-group-form__field--right
