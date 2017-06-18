@@ -4,7 +4,6 @@ $(function() {
     var div = $('<div>', {"class": "chat-group-user clearfix", "id": "chat-group-add"});
     var users = $('<p>', {"class": "chat-group-user__name"}).append(user.name);
     var btn = $('<a>', {'class': 'user-search-add chat-group-user__btn chat-group-user__btn--add', 'data-user-id': user.id, 'data-user-name': user.name}).append("追加");
-
     var result = div.append(users).append(btn);
     $('#user-search-result').append(result);
   }
@@ -48,11 +47,11 @@ $(function() {
       alert("検索に失敗しました");
     });
   });
-  $('#user-search-result').on('click', 'a', function(){
+  $('#user-search-result').on('click', '.user-search-add', function(){
     $(this).parent().remove();
     buildClass(this);
   });
-  $('#chat-group-users').on('click', 'a', function(){
+  $('#chat-group-users').on('click', '.user-search-remove', function(){
     $(this).parent().remove();
   });
 });
