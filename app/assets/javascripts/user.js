@@ -47,11 +47,11 @@ $(function() {
     });
   });
   $('#user-search-result').on('click', '.user-search-add', function(){
-    $(this).parent().remove();
+    $(this).parent($('.user-search-add')).remove();
     buildMemberHTML(this);
   });
   $('#chat-group-users').on('click', '.user-search-remove', function(){
-    $(this).parent().remove();
+    $(this).parent($('.user-search-remove')).remove();
   });
 });
 
