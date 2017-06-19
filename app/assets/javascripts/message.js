@@ -3,8 +3,6 @@ $(function() {
   var $jsForm = $('.js-form');
 
   function buildHTML(message){
-
-
     var time = $('<li class= "messages__chat__message__time">').append(message.created_at);
     var name = $('<li class= "messages__chat__message__name">').append(message.name);
     if(message.image.url) var image = $('<li class="messages__chat__message__image">').append(' <img src= "'+ message.image.url + '">');
@@ -13,7 +11,6 @@ $(function() {
      var chat = $('<ul class= "messages__chat__message">').append(name).append(time).append(text).append(image);
      $chatSpace.append(chat);
   }
-
 
     $jsForm.on('submit', function(e){
     e.preventDefault();
