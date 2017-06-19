@@ -1,5 +1,5 @@
 - @messages.each do |message|
-  %ul.messages__chat__message
+  %ul.messages__chat__message{ "data-message-id": "#{message.id}"}
     %li.messages__chat__message__name
       = message.user.name
     %li.messages__chat__message__time
