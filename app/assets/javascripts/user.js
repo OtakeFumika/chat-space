@@ -1,6 +1,6 @@
 $(function() {
   var preWord;
-  function buildHTML(user){
+  function buildSearchHTML(user){
     var div = $('<div>', {'class': 'chat-group-user clearfix', 'id': 'chat-group-add'});
     var users = $('<p>', {'class': 'chat-group-user__name'}).append(user.name);
     var btn = $('<a>', {'class': 'user-search-add chat-group-user__btn chat-group-user__btn--add', 'data-user-id': user.id, 'data-user-name': user.name}).append('追加');
@@ -8,7 +8,7 @@ $(function() {
     $('#user-search-result').append(result);
   }
 
-  function buildClass(user){
+  function buildMemberHTML(user){
     var div = $('<div>', {'class': 'chat-group-user clearfix js-chat-member', 'id': 'chat-group-user-8'});
     var input = $('<input>').attr({name: 'group[user_ids][]', type: 'hidden', value: $(user).data('user-id')});
     var name = $('<p>', {'class': 'chat-group-user__name'}).text($(user).data('user-name'));
@@ -36,7 +36,7 @@ $(function() {
         $('#chat-group-add').remove();
         if($search.length !== 0){
           $.each(data, function(i, user){
-          buildHTML(user);
+          buildSearchHTML(user);
           });
         }
       }
@@ -48,7 +48,7 @@ $(function() {
   });
   $('#user-search-result').on('click', '.user-search-add', function(){
     $(this).parent().remove();
-    buildClass(this);
+    buildMemberHTML(this);
   });
   $('#chat-group-users').on('click', '.user-search-remove', function(){
     $(this).parent().remove();
